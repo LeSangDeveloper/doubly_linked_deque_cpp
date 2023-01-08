@@ -1,6 +1,8 @@
 #ifndef DOUBLY_LINKED_DEQUE_H
 #define DOUBLY_LINKED_DEQUE_H
 
+#include<string>
+
 class RuntimeException {
     private:
         std::string errorMsg;
@@ -60,6 +62,6 @@ class LinkedDeque {
         void insertBack(const E& e);
         void removeFront() throw(RuntimeException);
         void removeBack() throw(RuntimeException);
-}
+};
 
 #endif

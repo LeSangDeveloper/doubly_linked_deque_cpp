@@ -1,4 +1,4 @@
-#include "doubly_linked_list.h"
+#include "doubly_linked_deque.h"
 #include<string>
 
 using namespace std;
@@ -74,15 +74,15 @@ void DLinkedList<E>::removeBack() {
 
 template<typename E>
 LinkedDeque<E>::LinkedDeque()
-: D(NULL), n(0) {}
+: D(), n(0) {}
 
 template<typename E>
-int LinkedDeque<E>::size() {
+int LinkedDeque<E>::size() const {
     return n + 1;
 }
 
 template<typename E>
-bool LinkedDeque<E>::empty() {
+bool LinkedDeque<E>::empty() const {
     return n == 0;
 }
 
