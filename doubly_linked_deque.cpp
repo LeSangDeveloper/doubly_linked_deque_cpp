@@ -72,6 +72,60 @@ void DLinkedList<E>::removeBack() {
     remove(trailer->prev);
 }
 
+template<typename E>
+LinkedDeque<E>::LinkedDeque()
+: D(NULL), n(0) {}
+
+template<typename E>
+int LinkedDeque<E>::size() {
+    return n + 1;
+}
+
+template<typename E>
+bool LinkedDeque<E>::empty() {
+    return n == 0;
+}
+
+template<typename E>
+const E& LinkedDeque<E>::front() const throw(RuntimeException){
+    if (empty()) throw RuntimeException("Front of empty Deque");
+    return D.front();
+}
+
+template<typename E>
+const E& LinkedDeque<E>::back() const throw(RuntimeException){
+if (empty()) throw RuntimeException("Front of empty Deque");
+    return D.back();
+}
+
+template<typename E>
+void LinkedDeque<E>::insertFront(const E& e) {
+    D.addFront(e);
+    n++;
+}
+
+template<typename E>
+void LinkedDeque<E>::insertBack(const E& e) {
+    D.addBack(e);
+    n++;
+}
+
+template<typename E>
+void LinkedDeque<E>::removeFront() throw(RuntimeException) {
+    D.removeFront();
+    n--;
+}
+
+template<typename E>
+void LinkedDeque<E>::removeBack() throw(RuntimeException) {
+    D.removeBack();
+    n--;
+}
+
 template class DLinkedList<int>;
 template class DLinkedList<double>;
 template class DLinkedList<string>;
+
+template class LinkedDeque<int>;
+template class LinkedDeque<double>;
+template class LinkedDeque<string>;

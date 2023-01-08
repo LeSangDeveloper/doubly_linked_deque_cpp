@@ -22,10 +22,14 @@ class DNode {
 };
 
 template<typename E>
+class LinkedDeque;
+
+template<typename E>
 class DLinkedList {
     private:
         DNode<E>* header;
         DNode<E>* trailer;
+        friend class LinkedDeque<E>;
     protected:
         void add(DNode<E>* v, const E&e);
         void remove(DNode<E>* v);
@@ -40,5 +44,22 @@ class DLinkedList {
         void removeFront();
         void removeBack();
 };
+
+template<typename E>
+class LinkedDeque {
+    private:
+        DLinkedList<E> D;
+        int n;
+    public:
+        LinkedDeque();
+        int size() const;
+        bool empty() const;
+        const E& front() const throw(RuntimeException);
+        const E& back() const throw(RuntimeException);
+        void insertFront(const E& e);
+        void insertBack(const E& e);
+        void removeFront() throw(RuntimeException);
+        void removeBack() throw(RuntimeException);
+}
 
 #endif
